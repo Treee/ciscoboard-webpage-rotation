@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+</head>
+
+<body>
+    <iframe id="main-frame" src="" style="border: none; width:100vw; height: 100vh;"></iframe>
+</body>
+
+<script>
+    const secondsToWaitBeforeChange = 120;
+    const urls = [
+        'https://wwt.saas.appdynamics.com/controller/#/location=APP_DASHBOARD&timeRange=last_1_hour.BEFORE_NOW.-1.-1.60&application=4119759&dashboardMode=force#adsDashboardContainer'
+    ];
+
+
+    let counter = 0;
+    changeUrl = () => {
+        document.getElementById('main-frame').setAttribute('src', urls[counter % urls.length]);
+        counter++;
+    };
+
+    changeUrl();
+
+    setInterval(() => {
+        changeUrl();
+    }, secondsToWaitBeforeChange * 1000)
+
+</script>
+
+</html>
