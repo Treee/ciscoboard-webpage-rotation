@@ -9,17 +9,20 @@
 </body>
 
 <script>
-    const secondsToWaitBeforeChange = 120;
+    const secondsToWaitBeforeChange = 10;
     const urls = [
-        'https://wwt.saas.appdynamics.com/controller/dashboards.jsp?desktopView=true#/location=DASHBOARD_VIEWER&token=b41b5e49-f4e6-4347-957f-8c6662d57b48&timeRange=last_1_hour.BEFORE_NOW.-1.-1.60',
-        'https://wwt.saas.appdynamics.com/controller/dashboards.jsp?desktopView=false#/location=DASHBOARD_VIEWER&token=d78266c2-b587-4a3e-af77-9955b542fce8&timeRange=last_15_minutes.BEFORE_NOW.-1.-1.15',
-        'https://wwt.saas.appdynamics.com/controller/dashboards.jsp?desktopView=true#/location=DASHBOARD_VIEWER&token=944189e2-5508-45df-8fb0-f6b83e48f034&timeRange=last_30_minutes.BEFORE_NOW.-1.-1.30'
+        'https://wwt.saas.appdynamics.com/controller/#/location=APP_DASHBOARD&timeRange=last_15_minutes.BEFORE_NOW.-1.-1.15&application=3555501&dashboardMode=force',
+        'https://wwt.saas.appdynamics.com/controller/#/location=APP_DASHBOARD&timeRange=last_15_minutes.BEFORE_NOW.-1.-1.15&application=3487519&dashboardMode=force'
+        // 'https://wwt.saas.appdynamics.com/controller/dashboards.jsp?desktopView=true#/location=DASHBOARD_VIEWER&token=b41b5e49-f4e6-4347-957f-8c6662d57b48&timeRange=last_1_hour.BEFORE_NOW.-1.-1.60',
+        // 'https://wwt.saas.appdynamics.com/controller/dashboards.jsp?desktopView=false#/location=DASHBOARD_VIEWER&token=d78266c2-b587-4a3e-af77-9955b542fce8&timeRange=last_15_minutes.BEFORE_NOW.-1.-1.15',
+        // 'https://wwt.saas.appdynamics.com/controller/dashboards.jsp?desktopView=true#/location=DASHBOARD_VIEWER&token=944189e2-5508-45df-8fb0-f6b83e48f034&timeRange=last_30_minutes.BEFORE_NOW.-1.-1.30'
     ];
 
 
     let counter = 0;
     changeUrl = () => {
-        document.getElementById('main-frame').setAttribute('src', urls[counter % urls.length]);
+        // document.getElementById('main-frame').setAttribute('src', urls[counter % urls.length]);
+        document.location.href = urls[counter % urls.length];
         counter++;
     };
 
