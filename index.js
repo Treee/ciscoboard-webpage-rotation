@@ -3,7 +3,6 @@ const express = require('express');
 const fs = require('fs');
 const Shell = require('node-powershell');
 var app = express();
-
 // config generated using https://appdynamics.github.io/dexter-ui/#/
 const dexterConfigPath = './appdynamics.dexter/DefaultJob.json';
 const applicationsToScrape = ['AD-Financial', 'AD-Financial-Next', 'AD-Fraud-Detection', 'Java ECommerce'];
@@ -13,6 +12,42 @@ var config = require(dexterConfigPath);
 var dir = path.join(__dirname, 'screenshots');
 app.use(express.static(dir));
 
+app.get('/', (req, res) => {
+    res.set('Content-Type', 'text/html');
+    res.send(`<!DOCTYPE html>
+    <html>
+    
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    
+    <body>
+        <iframe id="main-frame" style="border: none; width:1920px; height: 1080px;"></iframe>
+    </body>
+    <script type="text/javascript">
+        const secondsToWaitBeforeChange = 10;
+        const urls = [${getDashboardUrls()}];
+    
+        let counter = 0;
+        changeUrl = () => {
+            document.getElementById('main-frame').setAttribute('src', urls[counter % urls.length]);
+            counter++;
+        };
+    
+        changeUrl();
+    
+        setInterval(() => {
+           // changeUrl();
+        }, secondsToWaitBeforeChange * 1000)
+
+        setInterval(() => {
+            document.location.href="/"
+        }, 5 * 60 * 1000);
+    </script>
+    
+    </html>`);
+});
+
 app.listen(3000, () => {
     // run once
     kickoffNewScreenScrape();
@@ -21,6 +56,14 @@ app.listen(3000, () => {
         kickoffNewScreenScrape();
     }, minutesToWait * 60 * 1000);
 });
+
+getDashboardUrls = () => {
+    const urls = [];
+    fs.readdirSync('screenshots').forEach((appFolder) => {
+        urls.push(`'./${appFolder}/dashboard.png'`);
+    });
+    return urls;
+}
 
 kickoffNewScreenScrape = () => {
     let timestamp = new Date();
