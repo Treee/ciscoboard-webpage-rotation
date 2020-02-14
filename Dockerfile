@@ -3,7 +3,7 @@ FROM node:10
 WORKDIR /usr/src/app
 
 COPY appdynamics.dexter ./
-COPY screeshots ./
+RUN mkdir -p screenshots
 COPY package*.json ./
 
 RUN npm install

@@ -1,6 +1,6 @@
 node_modules/
 DefaultJob/
-screenshots/*
+screenshots/**/*
 appdynamics.dexter/core-win/ChromeDriver/
 appdynamics.dexter/DefaultJob.json
 appdynamics.dexter/core-win/logs/*
