@@ -2,7 +2,7 @@ FROM node:10
 
 WORKDIR /usr/src/app
 
-COPY appdynamics.dexter ./
+COPY appdynamics.dexter ./appdynamics.dexter
 RUN mkdir -p screenshots
 COPY package*.json ./
 
