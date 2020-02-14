@@ -115,15 +115,18 @@ moveScreenShot = (oldPath, newPath) => {
 
 // powershell script to run dexter 
 runDexterReport = () => {
-    const { execSync } = require('child_process');
-    // stderr is sent to stdout of parent process
-    // you can set options.stdio if you want it to go elsewhere
-    const stdout = execSync('./appdynamics.dexter/core-linux/AppDynamics.Dexter --job-file ./appdynamics.dexter/DefaultJob.json -o .');
-    // const { spawnSync } = require('child_process');
-    // const child = spawnSync('ls');
-    // console.error('error', child.error);
-    // console.log('stdout ', child.stdout);
-    // console.error('stderr ', child.stderr);
+    const command = './appdynamics.dexter/core-linux/AppDynamics.Dexter --job-file ./appdynamics.dexter/DefaultJob.json -o .';
+    const { exec } = require('child_process');
+    exec(command, (err, stdout, stderr) => {
+        if (err) {
+            //some err occurred
+            console.error(err)
+        } else {
+            // the *entire* stdout and stderr (buffered)
+            console.log(`stdout: ${stdout}`);
+            console.log(`stderr: ${stderr}`);
+        }
+    });
 }
 
 // given a filepath, delete that folder recursively, synchronously
