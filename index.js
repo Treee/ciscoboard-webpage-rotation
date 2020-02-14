@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
         changeUrl();
     
         setInterval(() => {
-           // changeUrl();
+            changeUrl();
         }, secondsToWaitBeforeChange * 1000)
 
         setInterval(() => {
