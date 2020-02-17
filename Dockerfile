@@ -1,4 +1,7 @@
-FROM node:10
+FROM alpine:latest
+
+RUN apk add --update npm
+RUN apk add --update chromium
 
 WORKDIR /usr/src/app
 
