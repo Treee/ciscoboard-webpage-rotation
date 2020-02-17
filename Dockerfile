@@ -1,5 +1,7 @@
 FROM alpine:latest
 
+USER root
+
 RUN apk add --update npm
 RUN apk add --update chromium
 
