@@ -2,7 +2,7 @@ FROM alpine:latest
 
 USER root
 
-RUN apk add --update libc6-compat
+RUN apk add --update gcompat
 RUN apk add --update npm
 RUN apk add --update chromium
 
