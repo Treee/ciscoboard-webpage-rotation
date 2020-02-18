@@ -27,7 +27,8 @@ This project assumes a Windows 10 OS and NodeJS is installed.
 - Navigate to the repo home directory
   - `cd ciscoboard-webpage-rotation`
 
-- Run the start command
+- Run the install and start command
+  - `npm install`
   - `npm start`
 
 ## Docker Commands (For Linux) pending
