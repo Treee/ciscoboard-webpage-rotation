@@ -13,7 +13,7 @@ This should not be used as a final solution as there is little redundancy and ma
 
 ## How to Use
 
-This project assumes a Windows 10 OS, NodeJS, Git is installed.
+This project assumes a Windows 10 OS, NodeJS, Git is installed and the latest version of Chrome (80 at the time of writing).
 
 - Instll [Git](https://git-scm.com/downloads)
   - Make sure you pick Windows version
