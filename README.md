@@ -13,7 +13,10 @@ This should not be used as a final solution as there is little redundancy and ma
 
 ## How to Use
 
-This project assumes a Windows 10 OS and NodeJS is installed.
+This project assumes a Windows 10 OS, NodeJS, Git is installed.
+
+- Instll [Git](https://git-scm.com/downloads)
+  - Make sure you pick Windows version
 
 - Install [NodeJS](https://nodejs.org/en/)
   - LTS version is fine.
